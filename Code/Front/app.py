@@ -31,7 +31,7 @@ def input_page():
     
     return render_template('input.html')
 
-@app.route('/results')
+@app.route('/results', methods=['GET', 'POST'])
 def results():
     data = request.args.to_dict()
     return render_template('results.html', data=data)
