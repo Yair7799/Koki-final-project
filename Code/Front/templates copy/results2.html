@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תוצאות</title>
+</head>
+<body>
+    <h1>תוצאות</h1>
+    <p>הנתונים שהזנת:</p>
+    <ul>
+        {% for key, value in data.items() %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">חזור לדף הבית</a>
+</body>
+</html>
