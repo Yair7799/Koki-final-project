@@ -1,491 +1,71 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>שיפור קורות חיים והכוונה תעסוקתית</title>
+    <title>Upload CV</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            direction: rtl;
+        .navbar-brand {
+            font-weight: bold;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 20px;
-            min-height: 70px;
-            border-bottom: 3px solid #77d42a;
-        }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 10px 20px;
-            display: inline-block;
-        }
-        header ul {
-            padding: 0;
-            list-style: none;
-            text-align: left;
-            margin: 0;
-        }
-        header li {
-            display: inline;
-            margin-left: 10px;
-        }
-        .showcase {
-            background: #35424a;
-            color: #fff;
-            padding: 80px 20px;
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem 1rem;
             text-align: center;
         }
-        .showcase h1 {
-            font-size: 45px;
-            margin: 0;
-            line-height: 1.5;
+        .lead {
+            font-size: 1.25rem;
         }
-        .showcase p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-        .form-container {
-            background: #fff;
-            padding: 30px;
-            margin-top: 30px;
-            border: 3px solid #77d42a;
-        }
-        .form-container h2 {
-            margin-top: 0;
-            font-size: 24px;
-            color: #333;
-        }
-        .form-container h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-            color: #333;
-        }
-        .form-container label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: #333;
-        }
-        .range-input {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .range-input label {
-            flex: 1;
-            font-size: 16px;
-            color: #333;
-        }
-        .range-input input[type="radio"] {
-            margin: 0 5px;
-        }
-        .btn {
-            display: inline-block;
-            border: none;
-            background: #333;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
+        .upload-section {
+            text-align: center;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1>שיפור קורות חיים והכוונה תעסוקתית</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/">בית</a></li>
-                </ul>
-            </nav>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">JobFinderAI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <section class="showcase">
-        <div class="container">
-            <h1>שפר את קורות החיים שלך מיידית</h1>
-            <p>העלה את קורות החיים שלך וקבל המלצות מותאמות אישית להדגשת התכונות החזקות שלך.</p>
-        </div>
-    </section>
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="display-4">Upload Your CV</h1>
+        <p class="lead">Let our AI analyze your CV to find the best job opportunities for you.</p>
+        <hr class="my-4">
+        <p>Click the button below to upload your CV in PDF format and get personalized job recommendations.</p>
+    </div>
 
-    <section id="input-form" class="container form-container">
-        <h2>העלה את קורות החיים שלך ושאלון הכוונה תעסוקתית</h2>
-        <form id="inputForm" enctype="multipart/form-data" method="post" action="/input">
-            <!-- Resume Upload -->
-            <h3>העלה את קורות החיים שלך (PDF)</h3>
-            <input type="file" name="resume" accept="application/pdf" required>
-            <br><br>
-            <label for="job">משרה רצויה:</label>
-            <input type="text" id="job" name="job" required>
-            <br><br>
-
-            <!-- Questionnaire -->
-            <div class="range-input">
-                <label for="question1">When leading a team, I ensure that everyone's roles and responsibilities are clearly defined and that they have the resources and support needed to succeed.</label>
-                <input type="radio" id="question1_1" name="Leadership1" value="1" required><label for="question1_1">1</label>
-                <input type="radio" id="question1_2" name="Leadership1" value="2"><label for="question1_2">2</label>
-                <input type="radio" id="question1_3" name="Leadership1" value="3"><label for="question1_3">3</label>
-                <input type="radio" id="question1_4" name="Leadership1" value="4"><label for="question1_4">4</label>
-                <input type="radio" id="question1_5" name="Leadership1" value="5"><label for="question1_5">5</label>
+    <!-- Upload Section -->
+    <div class="container upload-section">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" class="form-control-file" id="cvUpload" name="cvUpload" accept=".pdf">
             </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question2">I am comfortable making difficult decisions when necessary, but I also seek input and consider the perspectives of my team members before doing so.</label>
-                <input type="radio" id="question2_1" name="Leadership2" value="1" required><label for="question2_1">1</label>
-                <input type="radio" id="question2_2" name="Leadership2" value="2"><label for="question2_2">2</label>
-                <input type="radio" id="question2_3" name="Leadership2" value="3"><label for="question2_3">3</label>
-                <input type="radio" id="question2_4" name="Leadership2" value="4"><label for="question2_4">4</label>
-                <input type="radio" id="question2_5" name="Leadership2" value="5"><label for="question2_5">5</label>
-            </div>
-            <br><br>
-            
-            <div class="range-input">
-                <label for="question3">I am able to effectively communicate complex ideas to both technical and non-technical audiences, adapting my language and style as needed.</label>
-                <input type="radio" id="question3_1" name="Communication1" value="1" required><label for="question3_1">1</label>
-                <input type="radio" id="question3_2" name="Communication1" value="2"><label for="question3_2">2</label>
-                <input type="radio" id="question3_3" name="Communication1" value="3"><label for="question3_3">3</label>
-                <input type="radio" id="question3_4" name="Communication1" value="4"><label for="question3_4">4</label>
-                <input type="radio" id="question3_5" name="Communication1" value="5"><label for="question3_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question4">When conflicts arise, I focus on active listening and trying to understand the other person's perspective before expressing my own views.</label>
-                <input type="radio" id="question4_1" name="Communication2" value="1" required><label for="question4_1">1</label>
-                <input type="radio" id="question4_2" name="Communication2" value="2"><label for="question4_2">2</label>
-                <input type="radio" id="question4_3" name="Communication2" value="3"><label for="question4_3">3</label>
-                <input type="radio" id="question4_4" name="Communication2" value="4"><label for="question4_4">4</label>
-                <input type="radio" id="question4_5" name="Communication2" value="5"><label for="question4_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question5">I believe that the best results come from collaboration and leveraging the diverse skills and perspectives of all team members.</label>
-                <input type="radio" id="question5_1" name="Teamwork1" value="1" required><label for="question5_1">1</label>
-                <input type="radio" id="question5_2" name="Teamwork1" value="2"><label for="question5_2">2</label>
-                <input type="radio" id="question5_3" name="Teamwork1" value="3"><label for="question5_3">3</label>
-                <input type="radio" id="question5_4" name="Teamwork1" value="4"><label for="question5_4">4</label>
-                <input type="radio" id="question5_5" name="Teamwork1" value="5"><label for="question5_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question6">When a team member is struggling, I proactively offer my help and support, recognizing that the success of the team depends on everyone's contributions.</label>
-                <input type="radio" id="question6_1" name="Teamwork2" value="1" required><label for="question6_1">1</label>
-                <input type="radio" id="question6_2" name="Teamwork2" value="2"><label for="question6_2">2</label>
-                <input type="radio" id="question6_3" name="Teamwork2" value="3"><label for="question6_3">3</label>
-                <input type="radio" id="question6_4" name="Teamwork2" value="4"><label for="question6_4">4</label>
-                <input type="radio" id="question6_5" name="Teamwork2" value="5"><label for="question6_5">5</label>
-            </div>
-            <br><br>
-            
-            <div class="range-input">
-                <label for="question7">When faced with a complex problem, I take a systematic approach to break it down into smaller, more manageable components.</label>
-                <input type="radio" id="question7_1" name="Problem Solving1" value="1" required><label for="question7_1">1</label>
-                <input type="radio" id="question7_2" name="Problem Solving1" value="2"><label for="question7_2">2</label>
-                <input type="radio" id="question7_3" name="Problem Solving1" value="3"><label for="question7_3">3</label>
-                <input type="radio" id="question7_4" name="Problem Solving1" value="4"><label for="question7_4">4</label>
-                <input type="radio" id="question7_5" name="Problem Solving1" value="5"><label for="question7_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question8">I enjoy brainstorming creative solutions to challenges, even if some of the ideas might seem unconventional at first.</label>
-                <input type="radio" id="question8_1" name="Problem Solving2" value="1" required><label for="question8_1">1</label>
-                <input type="radio" id="question8_2" name="Problem Solving2" value="2"><label for="question8_2">2</label>
-                <input type="radio" id="question8_3" name="Problem Solving2" value="3"><label for="question8_3">3</label>
-                <input type="radio" id="question8_4" name="Problem Solving2" value="4"><label for="question8_4">4</label>
-                <input type="radio" id="question8_5" name="Problem Solving2" value="5"><label for="question8_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question9">I often come up with novel ideas by making connections between seemingly unrelated concepts or domains.</label>
-                <input type="radio" id="question9_1" name="Creativity1" value="1" required><label for="question9_1">1</label>
-                <input type="radio" id="question9_2" name="Creativity1" value="2"><label for="question9_2">2</label>
-                <input type="radio" id="question9_3" name="Creativity1" value="3"><label for="question9_3">3</label>
-                <input type="radio" id="question9_4" name="Creativity1" value="4"><label for="question9_4">4</label>
-                <input type="radio" id="question9_5" name="Creativity1" value="5"><label for="question9_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question10">When working on a project, I like to explore multiple approaches and perspectives before settling on a final direction.</label>
-                <input type="radio" id="question10_1" name="Creativity2" value="1" required><label for="question10_1">1</label>
-                <input type="radio" id="question10_2" name="Creativity2" value="2"><label for="question10_2">2</label>
-                <input type="radio" id="question10_3" name="Creativity2" value="3"><label for="question10_3">3</label>
-                <input type="radio" id="question10_4" name="Creativity2" value="4"><label for="question10_4">4</label>
-                <input type="radio" id="question10_5" name="Creativity2" value="5"><label for="question10_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question11">I am able to quickly adjust my approach or strategy when faced with new information or changing circumstances.</label>
-                <input type="radio" id="question11_1" name="Adaptability1" value="1" required><label for="question11_1">1</label>
-                <input type="radio" id="question11_2" name="Adaptability1" value="2"><label for="question11_2">2</label>
-                <input type="radio" id="question11_3" name="Adaptability1" value="3"><label for="question11_3">3</label>
-                <input type="radio" id="question11_4" name="Adaptability1" value="4"><label for="question11_4">4</label>
-                <input type="radio" id="question11_5" name="Adaptability1" value="5"><label for="question11_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question12">I view change as an opportunity for growth and learning, even if it requires me to step out of my comfort zone.</label>
-                <input type="radio" id="question12_1" name="Adaptability2" value="1" required><label for="question12_1">1</label>
-                <input type="radio" id="question12_2" name="Adaptability2" value="2"><label for="question12_2">2</label>
-                <input type="radio" id="question12_3" name="Adaptability2" value="3"><label for="question12_3">3</label>
-                <input type="radio" id="question12_4" name="Adaptability2" value="4"><label for="question12_4">4</label>
-                <input type="radio" id="question12_5" name="Adaptability2" value="5"><label for="question12_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question13">I am willing to put in the extra effort and go above and beyond what is required to ensure the success of a project.</label>
-                <input type="radio" id="question13_1" name="Work Ethic1" value="1" required><label for="question13_1">1</label>
-                <input type="radio" id="question13_2" name="Work Ethic1" value="2"><label for="question13_2">2</label>
-                <input type="radio" id="question13_3" name="Work Ethic1" value="3"><label for="question13_3">3</label>
-                <input type="radio" id="question13_4" name="Work Ethic1" value="4"><label for="question13_4">4</label>
-                <input type="radio" id="question13_5" name="Work Ethic1" value="5"><label for="question13_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question14">I take pride in the quality of my work and always strive to deliver the best possible results, even if it means revisiting and refining my work.</label>
-                <input type="radio" id="question14_1" name="Work Ethic2" value="1" required><label for="question14_1">1</label>
-                <input type="radio" id="question14_2" name="Work Ethic2" value="2"><label for="question14_2">2</label>
-                <input type="radio" id="question14_3" name="Work Ethic2" value="3"><label for="question14_3">3</label>
-                <input type="radio" id="question14_4" name="Work Ethic2" value="4"><label for="question14_4">4</label>
-                <input type="radio" id="question14_5" name="Work Ethic2" value="5"><label for="question14_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question15">I am skilled at prioritizing tasks based on importance and urgency, and I use tools and techniques to stay organized and on track.</label>
-                <input type="radio" id="question15_1" name="Time Management1" value="1" required><label for="question15_1">1</label>
-                <input type="radio" id="question15_2" name="Time Management1" value="2"><label for="question15_2">2</label>
-                <input type="radio" id="question15_3" name="Time Management1" value="3"><label for="question15_3">3</label>
-                <input type="radio" id="question15_4" name="Time Management1" value="4"><label for="question15_4">4</label>
-                <input type="radio" id="question15_5" name="Time Management1" value="5"><label for="question15_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question16">When working on multiple projects simultaneously, I create detailed schedules and allocate my time carefully to ensure that nothing falls through the cracks.</label>
-                <input type="radio" id="question16_1" name="Time Management2" value="1" required><label for="question16_1">1</label>
-                <input type="radio" id="question16_2" name="Time Management2" value="2"><label for="question16_2">2</label>
-                <input type="radio" id="question16_3" name="Time Management2" value="3"><label for="question16_3">3</label>
-                <input type="radio" id="question16_4" name="Time Management2" value="4"><label for="question16_4">4</label>
-                <input type="radio" id="question16_5" name="Time Management2" value="5"><label for="question16_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question17">I am able to build strong, positive relationships with colleagues, clients, and stakeholders from diverse backgrounds.</label>
-                <input type="radio" id="question17_1" name="Interpersonal Skills1" value="1" required><label for="question17_1">1</label>
-                <input type="radio" id="question17_2" name="Interpersonal Skills1" value="2"><label for="question17_2">2</label>
-                <input type="radio" id="question17_3" name="Interpersonal Skills1" value="3"><label for="question17_3">3</label>
-                <input type="radio" id="question17_4" name="Interpersonal Skills1" value="4"><label for="question17_4">4</label>
-                <input type="radio" id="question17_5" name="Interpersonal Skills1" value="5"><label for="question17_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question18">I am comfortable managing conflicts and sensitive situations with diplomacy, empathy, and a focus on finding win-win solutions.</label>
-                <input type="radio" id="question18_1" name="Interpersonal Skills2" value="1" required><label for="question18_1">1</label>
-                <input type="radio" id="question18_2" name="Interpersonal Skills2" value="2"><label for="question18_2">2</label>
-                <input type="radio" id="question18_3" name="Interpersonal Skills2" value="3"><label for="question18_3">3</label>
-                <input type="radio" id="question18_4" name="Interpersonal Skills2" value="4"><label for="question18_4">4</label>
-                <input type="radio" id="question18_5" name="Interpersonal Skills2" value="5"><label for="question18_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question19">I thoroughly review my work to catch and correct errors, ensuring that the final product meets the highest standards of accuracy and quality.</label>
-                <input type="radio" id="question19_1" name="Attention to Detail1" value="1" required><label for="question19_1">1</label>
-                <input type="radio" id="question19_2" name="Attention to Detail1" value="2"><label for="question19_2">2</label>
-                <input type="radio" id="question19_3" name="Attention to Detail1" value="3"><label for="question19_3">3</label>
-                <input type="radio" id="question19_4" name="Attention to Detail1" value="4"><label for="question19_4">4</label>
-                <input type="radio" id="question19_5" name="Attention to Detail1" value="5"><label for="question19_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question20">When working with complex data or information, I am meticulous in my organization and documentation to avoid confusion and mistakes.</label>
-                <input type="radio" id="question20_1" name="Attention to Detail2" value="1" required><label for="question20_1">1</label>
-                <input type="radio" id="question20_2" name="Attention to Detail2" value="2"><label for="question20_2">2</label>
-                <input type="radio" id="question20_3" name="Attention to Detail2" value="3"><label for="question20_3">3</label>
-                <input type="radio" id="question20_4" name="Attention to Detail2" value="4"><label for="question20_4">4</label>
-                <input type="radio" id="question20_5" name="Attention to Detail2" value="5"><label for="question20_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question21">I proactively seek out new opportunities and challenges, and I am always looking for ways to improve processes or results.</label>
-                <input type="radio" id="question21_1" name="Initiative1" value="1" required><label for="question21_1">1</label>
-                <input type="radio" id="question21_2" name="Initiative1" value="2"><label for="question21_2">2</label>
-                <input type="radio" id="question21_3" name="Initiative1" value="3"><label for="question21_3">3</label>
-                <input type="radio" id="question21_4" name="Initiative1" value="4"><label for="question21_4">4</label>
-                <input type="radio" id="question21_5" name="Initiative1" value="5"><label for="question21_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question22">When I see a problem or opportunity, I don't wait to be asked - I step up and take ownership to drive things forward.</label>
-                <input type="radio" id="question22_1" name="Initiative2" value="1" required><label for="question22_1">1</label>
-                <input type="radio" id="question22_2" name="Initiative2" value="2"><label for="question22_2">2</label>
-                <input type="radio" id="question22_3" name="Initiative2" value="3"><label for="question22_3">3</label>
-                <input type="radio" id="question22_4" name="Initiative2" value="4"><label for="question22_4">4</label>
-                <input type="radio" id="question22_5" name="Initiative2" value="5"><label for="question22_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question23">I enjoy digging into complex data to uncover insights and patterns that can inform strategic decisions.</label>
-                <input type="radio" id="question23_1" name="Analytical Thinking1" value="1" required><label for="question23_1">1</label>
-                <input type="radio" id="question23_2" name="Analytical Thinking1" value="2"><label for="question23_2">2</label>
-                <input type="radio" id="question23_3" name="Analytical Thinking1" value="3"><label for="question23_3">3</label>
-                <input type="radio" id="question23_4" name="Analytical Thinking1" value="4"><label for="question23_4">4</label>
-                <input type="radio" id="question23_5" name="Analytical Thinking1" value="5"><label for="question23_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question24">When evaluating options or solutions, I consider multiple factors and use data and logic to guide my recommendations.</label>
-                <input type="radio" id="question24_1" name="Analytical Thinking2" value="1" required><label for="question24_1">1</label>
-                <input type="radio" id="question24_2" name="Analytical Thinking2" value="2"><label for="question24_2">2</label>
-                <input type="radio" id="question24_3" name="Analytical Thinking2" value="3"><label for="question24_3">3</label>
-                <input type="radio" id="question24_4" name="Analytical Thinking2" value="4"><label for="question24_4">4</label>
-                <input type="radio" id="question24_5" name="Analytical Thinking2" value="5"><label for="question24_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question25">I am attuned to the emotions and unspoken cues of others, and I use this awareness to build stronger, more empathetic relationships.</label>
-                <input type="radio" id="question25_1" name="Emotional Intelligence1" value="1" required><label for="question25_1">1</label>
-                <input type="radio" id="question25_2" name="Emotional Intelligence1" value="2"><label for="question25_2">2</label>
-                <input type="radio" id="question25_3" name="Emotional Intelligence1" value="3"><label for="question25_3">3</label>
-                <input type="radio" id="question25_4" name="Emotional Intelligence1" value="4"><label for="question25_4">4</label>
-                <input type="radio" id="question25_5" name="Emotional Intelligence1" value="5"><label for="question25_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question26">In stressful or high-pressure situations, I am able to manage my own emotions and help others stay calm and focused.</label>
-                <input type="radio" id="question26_1" name="Emotional Intelligence2" value="1" required><label for="question26_1">1</label>
-                <input type="radio" id="question26_2" name="Emotional Intelligence2" value="2"><label for="question26_2">2</label>
-                <input type="radio" id="question26_3" name="Emotional Intelligence2" value="3"><label for="question26_3">3</label>
-                <input type="radio" id="question26_4" name="Emotional Intelligence2" value="4"><label for="question26_4">4</label>
-                <input type="radio" id="question26_5" name="Emotional Intelligence2" value="5"><label for="question26_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question27">I am committed to being honest, ethical, and accountable in all of my actions and decisions, even when it is difficult.</label>
-                <input type="radio" id="question27_1" name="Integrity1" value="1" required><label for="question27_1">1</label>
-                <input type="radio" id="question27_2" name="Integrity1" value="2"><label for="question27_2">2</label>
-                <input type="radio" id="question27_3" name="Integrity1" value="3"><label for="question27_3">3</label>
-                <input type="radio" id="question27_4" name="Integrity1" value="4"><label for="question27_4">4</label>
-                <input type="radio" id="question27_5" name="Integrity1" value="5"><label for="question27_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question28">I follow through on my commitments and take responsibility for my mistakes, seeing them as opportunities to learn and grow.</label>
-                <input type="radio" id="question28_1" name="Integrity2" value="1" required><label for="question28_1">1</label>
-                <input type="radio" id="question28_2" name="Integrity2" value="2"><label for="question28_2">2</label>
-                <input type="radio" id="question28_3" name="Integrity2" value="3"><label for="question28_3">3</label>
-                <input type="radio" id="question28_4" name="Integrity2" value="4"><label for="question28_4">4</label>
-                <input type="radio" id="question28_5" name="Integrity2" value="5"><label for="question28_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question29">When faced with setbacks or failures, I stay positive and persistent, viewing challenges as opportunities to learn and improve.</label>
-                <input type="radio" id="question29_1" name="Resilience1" value="1" required><label for="question29_1">1</label>
-                <input type="radio" id="question29_2" name="Resilience1" value="2"><label for="question29_2">2</label>
-                <input type="radio" id="question29_3" name="Resilience1" value="3"><label for="question29_3">3</label>
-                <input type="radio" id="question29_4" name="Resilience1" value="4"><label for="question29_4">4</label>
-                <input type="radio" id="question29_5" name="Resilience1" value="5"><label for="question29_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question30">I am able to bounce back from adversity and maintain my focus and productivity even in the face of stress or pressure.</label>
-                <input type="radio" id="question30_1" name="Resilience2" value="1" required><label for="question30_1">1</label>
-                <input type="radio" id="question30_2" name="Resilience2" value="2"><label for="question30_2">2</label>
-                <input type="radio" id="question30_3" name="Resilience2" value="3"><label for="question30_3">3</label>
-                <input type="radio" id="question30_4" name="Resilience2" value="4"><label for="question30_4">4</label>
-                <input type="radio" id="question30_5" name="Resilience2" value="5"><label for="question30_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question31">I seek to understand and appreciate the unique perspectives, experiences, and traditions of people from diverse cultural backgrounds.</label>
-                <input type="radio" id="question31_1" name="Cultural Awareness1" value="1" required><label for="question31_1">1</label>
-                <input type="radio" id="question31_2" name="Cultural Awareness1" value="2"><label for="question31_2">2</label>
-                <input type="radio" id="question31_3" name="Cultural Awareness1" value="3"><label for="question31_3">3</label>
-                <input type="radio" id="question31_4" name="Cultural Awareness1" value="4"><label for="question31_4">4</label>
-                <input type="radio" id="question31_5" name="Cultural Awareness1" value="5"><label for="question31_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question32">When working with global teams or clients, I am mindful of cultural differences in communication, decision-making, and work styles.</label>
-                <input type="radio" id="question32_1" name="Cultural Awareness2" value="1" required><label for="question32_1">1</label>
-                <input type="radio" id="question32_2" name="Cultural Awareness2" value="2"><label for="question32_2">2</label>
-                <input type="radio" id="question32_3" name="Cultural Awareness2" value="3"><label for="question32_3">3</label>
-                <input type="radio" id="question32_4" name="Cultural Awareness2" value="4"><label for="question32_4">4</label>
-                <input type="radio" id="question32_5" name="Cultural Awareness2" value="5"><label for="question32_5">5</label>
-            </div>
-            <br><br>
-            <br><br>
-            <div class="range-input">
-                <label for="question33">I believe in writing clean, well-documented, and efficient code that is easy for others to understand and maintain.</label>
-                <input type="radio" id="question33_1" name="Programming Languages1" value="1" required><label for="question33_1">1</label>
-                <input type="radio" id="question33_2" name="Programming Languages1" value="2"><label for="question33_2">2</label>
-                <input type="radio" id="question33_3" name="Programming Languages1" value="3"><label for="question33_3">3</label>
-                <input type="radio" id="question33_4" name="Programming Languages1" value="4"><label for="question33_4">4</label>
-                <input type="radio" id="question33_5" name="Programming Languages1" value="5"><label for="question33_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question34">I am skilled in a variety of technical tools and platforms relevant to my field, and I stay up-to-date with new technologies and best practices.</label>
-                <input type="radio" id="question34_1" name="Programming Languages2" value="1" required><label for="question34_1">1</label>
-                <input type="radio" id="question34_2" name="Programming Languages2" value="2"><label for="question34_2">2</label>
-                <input type="radio" id="question34_3" name="Programming Languages2" value="3"><label for="question34_3">3</label>
-                <input type="radio" id="question34_4" name="Programming Languages2" value="4"><label for="question34_4">4</label>
-                <input type="radio" id="question34_5" name="Programming Languages2" value="5"><label for="question34_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question35">When troubleshooting technical issues, I use a systematic, analytical approach to identify the root cause and implement effective solutions.</label>
-                <input type="radio" id="question35_1" name="Technical Skills1" value="1" required><label for="question35_1">1</label>
-                <input type="radio" id="question35_2" name="Technical Skills1" value="2"><label for="question35_2">2</label>
-                <input type="radio" id="question35_3" name="Technical Skills1" value="3"><label for="question35_3">3</label>
-                <input type="radio" id="question35_4" name="Technical Skills1" value="4"><label for="question35_4">4</label>
-                <input type="radio" id="question35_5" name="Technical Skills1" value="5"><label for="question35_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question36">I am proficient in using a range of office productivity tools, such as Microsoft Office or Google Suite, to create professional documents, presentations, and spreadsheets.</label>
-                <input type="radio" id="question36_1" name="Technical Skills2" value="1" required><label for="question36_1">1</label>
-                <input type="radio" id="question36_2" name="Technical Skills2" value="2"><label for="question36_2">2</label>
-                <input type="radio" id="question36_3" name="Technical Skills2" value="3"><label for="question36_3">3</label>
-                <input type="radio" id="question36_4" name="Technical Skills2" value="4"><label for="question36_4">4</label>
-                <input type="radio" id="question36_5" name="Technical Skills2" value="5"><label for="question36_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question37">I am able to leverage advanced features and functions of office tools to automate tasks, analyze data, and improve efficiency.</label>
-                <input type="radio" id="question37_1" name="Office Tools1" value="1" required><label for="question37_1">1</label>
-                <input type="radio" id="question37_2" name="Office Tools1" value="2"><label for="question37_2">2</label>
-                <input type="radio" id="question37_3" name="Office Tools1" value="3"><label for="question37_3">3</label>
-                <input type="radio" id="question37_4" name="Office Tools1" value="4"><label for="question37_4">4</label>
-                <input type="radio" id="question37_5" name="Office Tools1" value="5"><label for="question37_5">5</label>
-            </div>
-            <br><br>
-            <div class="range-input">
-                <label for="question38">I am able to leverage advanced features and functions of office tools to automate tasks, analyze data, and improve efficiency.</label>
-                <input type="radio" id="question38_1" name="Office Tools2" value="1" required><label for="questio38_1">1</label>
-                <input type="radio" id="question38_2" name="Office Tools2" value="2"><label for="question38_2">2</label>
-                <input type="radio" id="question38_3" name="Office Tools2" value="3"><label for="question38_3">3</label>
-                <input type="radio" id="question38_4" name="Office Tools2" value="4"><label for="question38_4">4</label>
-                <input type="radio" id="question38_5" name="Office Tools2" value="5"><label for="question38_5">5</label>
-            </div>
-            <br><br>
-            
-            <!-- Submit Button -->
-            <button type="submit" class="btn">שלח</button>
+            <button type="submit" class="btn btn-primary btn-lg">Upload CV</button>
         </form>
-    </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start">
+        <div class="container p-4">
+            <p>&copy; 2024 JobFinderAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
