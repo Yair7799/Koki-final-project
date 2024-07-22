@@ -3,75 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Prediction Results</title>
     <style>
-        .navbar-brand {
-            font-weight: bold;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
         }
-        .jumbotron {
-            background-color: #f8f9fa;
-            padding: 2rem 1rem;
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
             text-align: center;
+            color: #333;
         }
-        .results-section {
-            margin-top: 2rem;
+        .result {
+            margin-bottom: 20px;
         }
-        .results-list {
-            list-style-type: none;
+        .result h2 {
+            color: #555;
+        }
+        .result ul {
+            list-style: none;
             padding: 0;
         }
-        .results-list li {
-            padding: 0.5rem 0;
-        }
-        .footer {
-            background-color: #f8f9fa;
-            padding: 1rem 0;
-            text-align: center;
+        .result ul li {
+            background: #e9e9e9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">JobFinderAI</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="home">Home</a>
-                </li>
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <div class="result">
+            <h2>Features</h2>
+            <ul>
+                {% for feature in predictions.features %}
+                <li>{{ feature }}</li>
+                {% endfor %}
             </ul>
         </div>
-    </nav>
-
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-        <h1 class="display-4">Results</h1>
-        <p class="lead">Here are the details you provided:</p>
-    </div>
-
-    <!-- Results Section -->
-    <div class="container results-section">
-        <ul class="results-list">
-            {% for key, value in data.items() %}
-            <li><strong>{{ key }}:</strong> {{ value }}</li>
-            {% endfor %}
-        </ul>
-        <a href="home" class="btn btn-primary btn-lg">Back to Home Page</a>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 JobFinderAI. All rights reserved.</p>
+        <div class="result">
+            <h2>Predictions</h2>
+            <ul>
+                {% for value in predictions.predictions[0] %}
+                <li>{{ value }}</li>
+                {% endfor %}
+            </ul>
         </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
 </body>
 </html>

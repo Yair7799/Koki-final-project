@@ -1,13 +1,11 @@
 import os
-import sys
-from back import find_employment_avenues_recommendations
-from flask import Flask, render_template, request, redirect, url_for
-from werkzeug.utils import secure_filename
+from flask import Flask, render_template, request, jsonify
+
+from back import extract_text_from_pdf, predict_character_traits, preprocess_text
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# Ensure the upload folder exists
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
@@ -18,23 +16,33 @@ def home():
 @app.route('/input', methods=['GET', 'POST'])
 def input_page():
     if request.method == 'POST':
+        # Handle form data
         data = request.form.to_dict()
-        recommendations = find_employment_avenues_recommendations(data)
-        if 'resume' in request.files:
-            resume = request.files['resume']
-            if resume.filename != '':
-                filename = secure_filename(resume.filename)
-                resume.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                data['resume_filename'] = filename
-        
-        return redirect(url_for('results', **recommendations))
-    
+        print(f"Received data: {data}")  # Debugging line
+
+        # Handle file uploads
+        if 'file' not in request.files:
+            return jsonify({"error": "No file part"}), 400
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({"error": "No selected file"}), 400
+        if file and file.filename.endswith('.pdf'):
+            file1 = preprocess_text(file)
+            text = extract_text_from_pdf(file1)
+            predictions = predict_character_traits(text)
+            return jsonify({"predictions": predictions})
+        else:
+            return jsonify({"error": "Invalid file format"}), 400
+
     return render_template('input.html')
 
-@app.route('/results', methods=['GET', 'POST'])
+@app.route('/results', methods=['POST', 'GET'])
 def results():
-    data = request.args.to_dict()
-    return render_template('results.html', data=data)
+    data = request.get_json()
+    features = data.get('features', [])
+    predictions = data.get('predictions', [])
+    
+    return render_template('results.html', predictions={'features': features, 'predictions': predictions})
 
 if __name__ == '__main__':
     app.run(debug=True)
