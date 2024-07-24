@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .lead {
+            font-size: 1.25rem;
+        }
+        .features {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">JobFinderAI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="input">Input Page</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to JobFinderAI</h1>
+        <p class="lead">Discover your ideal job with the power of AI</p>
+        <hr class="my-4">
+        <p>Our advanced algorithms analyze your CV and recommend the best job opportunities tailored just for you.</p>
+        <a class="btn btn-primary btn-lg" href="input" role="button">Get Started</a>
+        <a class="btn btn-primary btn-lg" href="adjust" role="button">adjust cv for job</a>
+
+    </div>
+
+    <!-- Features -->
+    <div class="container features">
+        <h2>How It Works</h2>
+        <div class="row">
+            <div class="col-md-4 feature-item">
+                <h3>Upload CV</h3>
+                <p>Submit your CV in PDF format to get personalized job recommendations.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <h3>Top Job Matches</h3>
+                <p>Our AI ranks the best job opportunities based on your skills and experience.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <h3>Career Guidance</h3>
+                <p>Receive a recommended route for finding your desired job with actionable insights.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start">
+        <div class="container p-4">
+            <p>&copy; 2024 JobFinderAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
