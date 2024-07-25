@@ -17,9 +17,22 @@
         .lead {
             font-size: 1.25rem;
         }
-        .upload-section {
+        .upload-section, .loading-section {
             text-align: center;
             margin-top: 2rem;
+        }
+        .loading-spinner {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -41,19 +54,25 @@
 
     <!-- Jumbotron -->
     <div class="jumbotron">
-        <h1 class="display-4">Adjust your CV to a job</h1>
-        <p class="lead">Adjust your CV to a jo.</p>
+        <h1 class="display-4">Adjust your CV to a Job</h1>
+        <p class="lead">Adjust your CV to match the requirements of your desired job.</p>
         <hr class="my-4">
-        <p>Click the button below to upload your CV in PDF format and a link to the requirments to your desired job and get a personalized CV for that job.</p>
+        <p>Click the button below to upload your CV in PDF format and provide a link to the job requirements to get a personalized CV for that job.</p>
     </div>
 
     <!-- Upload Section -->
     <div class="container upload-section">
-        <form action="/adjust" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" />
-            <input type="text" name="job" placeholder="link to the requirments"/>
-            <input type="submit" value="Upload">
+        <form id="upload-form" action="/adjust" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required />
+            <input type="text" name="job" placeholder="Link to the requirements" required />
+            <input type="submit" value="Upload" class="btn btn-primary">
         </form>   
+    </div>
+
+    <!-- Loading Section -->
+    <div class="container loading-section" id="loading-section" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Processing your resume, please wait...</p>
     </div>
 
     <!-- Footer -->
@@ -66,5 +85,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function() {
+            document.querySelector('.upload-section').style.display = 'none';
+            document.getElementById('loading-section').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
