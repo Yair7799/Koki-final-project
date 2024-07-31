@@ -3,40 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>JobFinderAI</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .navbar-brand {
-            font-weight: bold;
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand img {
+            height: 40px;
         }
         .jumbotron {
             background-color: #f8f9fa;
-            padding: 2rem 1rem;
+            padding: 4rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .jumbotron::after {
+            content: '';
+            background-image: url('Images/home page photo.JPG');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        .display-4 {
+            font-weight: bold;
+            font-size: 2.5rem;
         }
         .lead {
             font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .jumbotron img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .features {
             text-align: center;
-            margin-top: 2rem;
+            padding: 4rem 0;
+            background-color: #f8f9fa;
         }
         .feature-item {
-            margin: 1rem 0;
+            margin: 2rem 0;
+            padding: 0 15px;
+        }
+        .feature-item h3 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .feature-item p {
+            color: #666;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-weight: bold;
+            padding: 0.5rem 1.5rem;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer p {
+            margin: 0;
+            color: #666;
+        }
+        .about,
+        .testimonials,
+        .contact {
+            padding: 4rem 2rem;
+        }
+        .about h2,
+        .testimonials h2,
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+        .about p,
+        .testimonials p,
+        .contact p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        .testimonial-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        .zoomIn {
+            animation-name: zoomIn;
+        }
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+            50% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">JobFinderAI</a>
+        <a class="navbar-brand" href="#"><img src="Images/koci logo.JPG" alt="Kochi Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="input">Input Page</a>
+                    <a class="nav-link" href="#how-it-works">How It Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary text-white" href="input">Get Started</a>
                 </li>
             </ul>
         </div>
@@ -44,40 +170,80 @@
 
     <!-- Jumbotron -->
     <div class="jumbotron">
-        <h1 class="display-4">Welcome to JobFinderAI</h1>
-        <p class="lead">Discover your ideal job with the power of AI</p>
+        <h1 class="display-4 animated fadeInUp">Welcome to JobFinderAI</h1>
+        <p class="lead animated fadeInUp delay-1s">Discover your ideal job with the power of AI.</p>
+        <img src="Images/home page photo.JPG" alt="JobFinderAI" class="animated fadeInUp delay-2s">
         <hr class="my-4">
         <p>Our advanced algorithms analyze your CV and recommend the best job opportunities tailored just for you.</p>
-        <a class="btn btn-primary btn-lg" href="input" role="button">Get Started</a>
-        <a class="btn btn-primary btn-lg" href="adjust" role="button">adjust cv for job</a>
-
+        <a class="btn btn-primary animated fadeInUp delay-3s" href="input" role="button">Get Started</a>
+        <a class="btn btn-primary animated fadeInUp delay-4s" href="adjust" role="button">Adjust CV for Job</a>
     </div>
 
     <!-- Features -->
-    <div class="container features">
-        <h2>How It Works</h2>
-        <div class="row">
-            <div class="col-md-4 feature-item">
-                <h3>Upload CV</h3>
-                <p>Submit your CV in PDF format to get personalized job recommendations.</p>
+    <div id="how-it-works" class="features">
+        <div class="container">
+            <h2 class="text-center animated zoomIn mb-5">How It Works</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 feature-item animated fadeInUp">
+                    <img src="Images/how it works 1.png" alt="Upload CV" class="img-fluid mb-3">
+                    <h3>Upload CV</h3>
+                    <p>Submit your CV in PDF format to get personalized job recommendations.</p>
+                </div>
+                <div class="col-md-4 feature-item animated fadeInUp delay-1s">
+                    <img src="Images/how it works 2.png" alt="Top Job Matches" class="img-fluid mb-3">
+                    <h3>Top Job Matches</h3>
+                    <p>Our AI ranks the best job opportunities based on your skills and experience.</p>
+                </div>
+                <div class="col-md-4 feature-item animated fadeInUp delay-2s">
+                    <img src="Images/how it works 3.png" alt="Career Guidance" class="img-fluid mb-3">
+                    <h3>Career Guidance</h3>
+                    <p>Receive a recommended route for finding your desired job with actionable insights.</p>
+                </div>
             </div>
-            <div class="col-md-4 feature-item">
-                <h3>Top Job Matches</h3>
-                <p>Our AI ranks the best job opportunities based on your skills and experience.</p>
+        </div>
+    </div>
+
+    <!-- About Us -->
+    <div id="about" class="about bg-light">
+        <div class="container">
+            <h2 class="text-center">About Us</h2>
+            <p>JobFinderAI is a cutting-edge platform designed to help job seekers find their perfect job match. Using advanced AI algorithms, we analyze your CV and provide personalized job recommendations. Our mission is to simplify the job search process and connect you with opportunities that match your skills and aspirations.</p>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="text-center">What Our Users Say</h2>
+            <div class="row">
+                <div class="col-md-4 testimonial-item animated fadeInUp">
+                    <p>"JobFinderAI helped me land my dream job! The recommendations were spot on, and the career guidance was incredibly useful."</p>
+                    <p><strong>- Sarah L.</strong></p>
+                </div>
+                <div class="col-md-4 testimonial-item animated fadeInUp delay-1s">
+                    <p>"I was struggling to find a job that matched my skills. JobFinderAI made it so much easier by providing targeted job matches."</p>
+                    <p><strong>- Michael B.</strong></p>
+                </div>
+                <div class="col-md-4 testimonial-item animated fadeInUp delay-2s">
+                    <p>"The CV analysis and job recommendations were extremely accurate. I found a job within weeks thanks to JobFinderAI."</p>
+                    <p><strong>- Jessica R.</strong></p>
+                </div>
             </div>
-            <div class="col-md-4 feature-item">
-                <h3>Career Guidance</h3>
-                <p>Receive a recommended route for finding your desired job with actionable insights.</p>
-            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="contact bg-light">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <p class="text-center">If you have any questions or need assistance, feel free to reach out to us at support@jobfinderai.com or call us at (123) 456-7890.</p>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
-            <p>&copy; 2024 JobFinderAI. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="footer">
+        <p>&copy; 2024 JobFinderAI. All Rights Reserved.</p>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
