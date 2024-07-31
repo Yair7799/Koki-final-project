@@ -3,30 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload CV</title>
+    <title>Upload CV - JobFinderAI</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .navbar-brand {
-            font-weight: bold;
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand img {
+            height: 40px;
         }
         .jumbotron {
             background-color: #f8f9fa;
-            padding: 2rem 1rem;
+            padding: 4rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .jumbotron::after {
+            content: '';
+            background-color: #007bff;
+            opacity: 0.1;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        .display-4 {
+            font-weight: bold;
+            font-size: 2.5rem;
         }
         .lead {
             font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-weight: bold;
+            padding: 0.5rem 1.5rem;
         }
         .upload-section {
             text-align: center;
             margin-top: 2rem;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .footer p {
+            margin: 0;
+            color: #666;
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">JobFinderAI</a>
+        <a class="navbar-brand" href="#"><img src="Images/koci logo.JPG" alt="JobFinderAI Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,26 +102,29 @@
 
     <!-- Jumbotron -->
     <div class="jumbotron">
-        <h1 class="display-4">Upload Your CV</h1>
-        <p class="lead">Let our AI analyze your CV to find the best job opportunities for you.</p>
+        <h1 class="display-4 animated fadeInUp">Upload Your CV</h1>
+        <p class="lead animated fadeInUp delay-1s">Let our AI analyze your CV to find the best job opportunities for you.</p>
         <hr class="my-4">
-        <p>Click the button below to upload your CV in PDF format and get personalized job recommendations.</p>
+        <p class="animated fadeInUp delay-2s">Upload your CV in PDF format and get personalized job recommendations.</p>
     </div>
 
     <!-- Upload Section -->
-    <div class="container upload-section">
-        <form action="/input" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" />
-            <input type="submit" value="Upload">
-        </form>   
+    <div class="container">
+        <div class="upload-section animated fadeInUp delay-3s">
+            <form action="/input" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Choose your CV (PDF format)</label>
+                    <input type="file" class="form-control-file" id="file" name="file" required>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Upload and Analyze</button>
+            </form>   
+        </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
-            <p>&copy; 2024 JobFinderAI. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="footer">
+        <p>&copy; 2024 JobFinderAI. All Rights Reserved.</p>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
