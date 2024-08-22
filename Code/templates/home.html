@@ -143,7 +143,9 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="Images/koci logo.JPG" alt="Kochi Logo"></a>
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='Images/koci logo.JPG') }}" alt="Kochi Logo">
+        </a>        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -172,7 +174,7 @@
     <div class="jumbotron">
         <h1 class="display-4 animated fadeInUp">Welcome to JobFinderAI</h1>
         <p class="lead animated fadeInUp delay-1s">Discover your ideal job with the power of AI.</p>
-        <img src="Images/home_page_photo.JPG" alt="JobFinderAI" class="animated fadeInUp delay-2s">
+        <img src="{{ url_for('static', filename='Images/home_page_photo.JPG') }}" alt="JobFinderAI" class="animated fadeInUp delay-2s">
         <hr class="my-4">
         <p>Our advanced algorithms analyze your CV and recommend the best job opportunities tailored just for you.</p>
         <a class="btn btn-primary animated fadeInUp delay-3s" href="input" role="button">Get Started</a>
@@ -185,17 +187,17 @@
             <h2 class="text-center animated zoomIn mb-5">How It Works</h2>
             <div class="row justify-content-center">
                 <div class="col-md-4 feature-item animated fadeInUp">
-                    <img src="Images/how it works 1.png" alt="Upload CV" class="img-fluid mb-3">
+                    <img src="{{ url_for('static', filename='Images/how it works 1.png') }}" alt="Upload CV" class="img-fluid mb-3">
                     <h3>Upload CV</h3>
                     <p>Submit your CV in PDF format to get personalized job recommendations.</p>
                 </div>
                 <div class="col-md-4 feature-item animated fadeInUp delay-1s">
-                    <img src="Images/how it works 2.png" alt="Top Job Matches" class="img-fluid mb-3">
+                    <img src="{{ url_for('static', filename='Images/how it works 2.png') }}" alt="Top Job Matches" class="img-fluid mb-3">
                     <h3>Top Job Matches</h3>
                     <p>Our AI ranks the best job opportunities based on your skills and experience.</p>
                 </div>
                 <div class="col-md-4 feature-item animated fadeInUp delay-2s">
-                    <img src="Images/how it works 3.png" alt="Career Guidance" class="img-fluid mb-3">
+                    <img src="{{ url_for('static', filename='Images/how it works 3.png') }}" alt="Career Guidance" class="img-fluid mb-3">
                     <h3>Career Guidance</h3>
                     <p>Receive a recommended route for finding your desired job with actionable insights.</p>
                 </div>
