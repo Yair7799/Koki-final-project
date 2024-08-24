@@ -138,6 +138,24 @@
                 opacity: 1;
             }
         }
+        .btn-section {
+            margin-top: 2rem;
+        }
+        .btn-description {
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 1.125rem;
+        }
+        .btn-heading {
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .btn-subheading {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -177,8 +195,24 @@
         <img src="{{ url_for('static', filename='Images/home_page_photo.JPG') }}" alt="JobFinderAI" class="animated fadeInUp delay-2s">
         <hr class="my-4">
         <p>Our advanced algorithms analyze your CV and recommend the best job opportunities tailored just for you.</p>
-        <a class="btn btn-primary animated fadeInUp delay-3s" href="input" role="button">Get Started</a>
-        <a class="btn btn-primary animated fadeInUp delay-4s" href="adjust" role="button">Adjust CV for Job</a>
+        
+        <!-- Get Started Section -->
+        <div class="btn-section">
+            <h2 class="btn-heading">Get Started</h2>
+            <h3 class="btn-subheading">Begin Your Job Search Journey</h3>
+            <p class="btn-description">For individuals looking to start their job search journey from scratch,</p>
+            <p class="btn-description">our comprehensive guidance provides a structured path to find your ideal job.</p>
+            <a class="btn btn-primary animated fadeInUp delay-3s" href="input" role="button">Get Started</a>
+        </div>
+        
+        <!-- Adjust CV for Job Section -->
+        <div class="btn-section">
+            <h2 class="btn-heading">Adjust CV for Job</h2>
+            <h3 class="btn-subheading">Enhance Your CV for Target Jobs</h3>
+            <p class="btn-description">Perfect for those who already have a target job in mind and need professional adjustments</p>
+            <p class="btn-description">to enhance their CV for better job prospects.</p>
+            <a class="btn btn-primary animated fadeInUp delay-4s" href="adjust" role="button">Adjust CV for Job</a>
+        </div>
     </div>
 
     <!-- Features -->
