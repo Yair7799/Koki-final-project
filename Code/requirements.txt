@@ -18,5 +18,3 @@ reportlab
 pinecone
 streamlit
 st
-
-
